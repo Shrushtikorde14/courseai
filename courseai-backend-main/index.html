@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CourseAI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" id="homeButton">CourseAI</button>
+    <div id="authActions"></div>
+  </header>
+
+  <main>
+    <section id="authView" class="auth-layout">
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <button class="active" data-auth="login">Login</button>
+          <button data-auth="signup">Sign up</button>
+        </div>
+        <form id="authForm">
+          <div id="nameField" class="hidden">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" autocomplete="name">
+          </div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" minlength="6" autocomplete="current-password" required>
+          <button class="primary" type="submit" id="authSubmit">Login</button>
+        </form>
+        <p id="authMessage" class="message"></p>
+      </div>
+    </section>
+
+    <section id="appView" class="hidden">
+      <aside class="sidebar">
+        <button class="nav active" data-view="recommend">Recommendations</button>
+        <button class="nav" data-view="bookmarks">Bookmarks</button>
+        <button class="nav" data-view="recent">Recent</button>
+        <button class="nav" data-view="analytics">Analytics</button>
+      </aside>
+
+      <div class="content">
+        <section id="recommendView" class="view">
+          <h1>Find your next course</h1>
+          <form id="recommendForm" class="recommend-form">
+            <label>Skill
+              <input name="skill" placeholder="Python, SQL, Web Development">
+            </label>
+            <label>Domain
+              <input name="domain" placeholder="Data Science or Web">
+            </label>
+            <label>Objective
+              <input name="objective" placeholder="Become a data analyst">
+            </label>
+            <label>Difficulty
+              <select name="difficulty">
+                <option value="">Any level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </label>
+            <button class="primary" type="submit">Recommend courses</button>
+          </form>
+          <div id="recommendMessage" class="message"></div>
+          <div id="roadmap" class="roadmap"></div>
+          <div id="courseGrid" class="course-grid"></div>
+        </section>
+
+        <section id="bookmarksView" class="view hidden">
+          <h1>Bookmarks</h1>
+          <div id="bookmarksGrid" class="course-grid"></div>
+        </section>
+
+        <section id="recentView" class="view hidden">
+          <h1>Recent courses</h1>
+          <div id="recentGrid" class="course-grid"></div>
+        </section>
+
+        <section id="analyticsView" class="view hidden">
+          <h1>Analytics</h1>
+          <div id="analyticsGrid" class="analytics-grid"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
